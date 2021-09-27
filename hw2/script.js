@@ -6,7 +6,7 @@ do {
 } 
 while (i > 0)
 console.log(result) */
-
+//Нескінченний цикл можна зробити ще і так - while(true){}
 function changeStr(str){
 let new_str = "";
     
@@ -19,4 +19,4 @@ let new_str = "";
   }
   return new_str;
 }
-console.log(changeStr('Test'))
+console.log(changeStr('Test123'))
