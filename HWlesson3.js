@@ -31,6 +31,8 @@ function x (array){
 
 };
 
+// Можна ще більше скоротити - просто до return !!arr.length
+
 //
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
@@ -48,6 +50,8 @@ function concatArray(arr1, arr2){
 
 };
 concatArray(aa, bb);
+
+// Можна ще через arr3 = [...arr1, ...arr2]
 
 //
 function arrayToPow(array){
@@ -78,3 +82,11 @@ arrInt(ss);
 function sum(a, b) {
     const result = a + b;
   };
+
+
+// Підсумок: 
+// всі завдання зроблені і зроблені правильно, 
+// рішення доволі компактні,
+// нічого лишнього нема, але трохи хромає стиль коду
+// раджу взяти за звичку нормально форматувати його
+// хоча б вбудованими інструментами 
