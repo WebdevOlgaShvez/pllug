@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="detect.js"></script>
+</head>
+<body>
+    <script>
+       
+    let user = detect.parse(navigator.userAgent);
+    window.onload =()=> alert(user.browser.family + '-' + user.os.name)
+    
+</script>
+
+<script>
+    'use strict'
+    console.time("All time");
+    console.log('начальный readyState:' + document.readyState);
+  
+    document.addEventListener('readystatechange', () => console.log('readyState:' + document.readyState + "-" + new Date().toLocaleString("en-US")));
+    document.addEventListener('DOMContentLoaded', () => console.log('DOMContentLoaded'));
+  
+    window.onload = () => console.log('window onload');
+    window.onbeforeunload = function() {
+     
+     return console.log( new Date().toLocaleString("en-US"))
+    };
+    
+
+
+    console.timeEnd("All time");
+  </script>
+ 
+   
+</body>
+</html>

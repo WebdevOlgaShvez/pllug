@@ -19,7 +19,7 @@ function toCamelCase(array){
   }
 
 
-console.log(toCamelCase(arr))
+console.log(toCamelCase(arr));
 
 
 //2
@@ -41,4 +41,7 @@ function objWithNumber(obj){
     });
     return Object.fromEntries(arr)
 }
+
+// in index.html
+
 
