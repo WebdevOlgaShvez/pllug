@@ -8,8 +8,10 @@
     <script src="detect.js"></script>
 </head>
 <body>
+
+<!-- писати скрипти в html-файлі погана практика, ліпше їх всі виносити в окремий файл по можливості -->
     <script>
-       
+       //а навіщо тут використовувати окрему лібу? В navigator і так є поля, які відповідають за назву браузера та OS
     let user = detect.parse(navigator.userAgent);
     window.onload =()=> alert(user.browser.family + '-' + user.os.name)
     
@@ -32,6 +34,7 @@
 
 
     console.timeEnd("All time");
+    //заміряється час не перебування юзера на сторінці, а виконання скрипта
   </script>
  
    
