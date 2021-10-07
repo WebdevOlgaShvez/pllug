@@ -14,7 +14,7 @@ let rem = document.getElementById("animals");
 remClass(rem);
 
 //4
-let elem = document.getElementsByClassName("pet");
+let elem = document.getElementsByClassName("dangerous");
 
 function setColor(elem) {
   for (let i=0; i<elem.length; i++) {

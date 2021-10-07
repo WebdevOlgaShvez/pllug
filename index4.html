@@ -16,7 +16,7 @@
 </script>
 
 <script>
-    'use strict'
+    "use strict"
     console.time("All time");
     console.log('начальный readyState:' + document.readyState);
   
@@ -24,9 +24,10 @@
     document.addEventListener('DOMContentLoaded', () => console.log('DOMContentLoaded'));
   
     window.onload = () => console.log('window onload');
+    
     window.onbeforeunload = function() {
-     
-     return console.log( new Date().toLocaleString("en-US"))
+     console.log( new Date().toLocaleString("en-US"))
+     return "Есть несохранённые изменения. Всё равно уходим?";
     };
     
 
