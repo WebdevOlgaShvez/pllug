@@ -32,10 +32,22 @@ let remel = document.querySelectorAll(".pet").forEach(el => {
 
 
 //6
-let ulBirds = document.getElementById("birds");
-function addElem(){
+let ulBirds = document.getElementById('birds');
+function addEleFirst(){
   let li = document.createElement('li');
   li.innerHTML = 'new bird';
   ulBirds.prepend(li)
 }
-addElem()
+addEleFirst();
+
+//7
+function addElemLast(){
+  let li = document.createElement('li');
+  li.innerHTML = 'last bird';
+  ulBirds.append(li)
+}
+addElemLast();
+
+//8
+let ul2 = document.getElementById('birds');
+ul2.insertAdjacentHTML('beforebegin', '<ul id="fish"><li>one</li><li>two</li></ul>');
