@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ input:invalid{
+  border-color: #900;
+  background-color: #FDD;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+/* Это стили для кастомных сообщений об ошибке */
+.error {
+  width  : 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+</style>
+</head>
+<body>
+    <form action="">
+        <div>
+          <p id="message" >Пожалуйста, заполните все поля формы!</p> 
+            <label for="nikname"></label>
+            <input type="text" id="nikname" name="user_nikname" required minlength="3" maxlength="24"/>
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div>
+            <label for="name"></label>
+            <input type="text" id="name" name="user_name" required minlength="1" maxlength="100" />
+            <span class="error" aria-live="polite"></span>
+          </div>
+          <div>
+            <label for="msg"></label>
+            <textarea id="msg" name="user_message"></textarea>
+            <span class="error" aria-live="polite"></span>
+          </div> 
+          <input name="button" type="submit" value="Add comment" onClick="validNikname();" />
+    </form>
+
+ 
+    <script src="main.js"></script>
+</body>
+</html>
