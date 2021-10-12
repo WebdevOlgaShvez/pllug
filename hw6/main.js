@@ -8,7 +8,7 @@
 const nik = document.getElementById('nikname');
 
 nik.addEventListener('input', function (event) {
-const nikname = nik.value;
+const nikname = nik.value; // всередині блоку потрібен відступ
 const nikError = document.querySelector('#nikname + span.error');
 console.log(nikname);
 const re = /[a-z]+[a-z0-9]{2,24}/i;
@@ -87,3 +87,8 @@ nameField.addEventListener('input', function (event) {
 });
 
  */
+
+// закоментований код ліпше підчищати перед коммітом
+
+
+// Завдання зроблене не повністю, дуже погана якість коду - рекомендую почитати які-небудь стайлгайди по js
