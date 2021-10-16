@@ -2,19 +2,20 @@
 //довжина мінімум 3 символа (включно), максимум 24 символа (включно)
 //мінімум 1 буква
 //За допомогою JavaScript дозвольте вводити тільки букви (англійські)  і цифри.
-
-
-//const form  = document.getElementsByTagName('form')[0];
+const button = document.querySelector(".button");
 const nik = document.getElementById('nikname');
 
-nik.addEventListener('input', function (event) {
+nik.addEventListener('input', function(event) {
+
+
 const nikname = nik.value;
 const nikError = document.querySelector('#nikname + span.error');
 console.log(nikname);
-const re = /[a-z]+[a-z0-9]{2,24}/i;
-const valid = re.test(nikname);
-console.log(valid);
-  if (valid) {
+const re = /[a-z]{1,}[a-z0-9]{2,24}/i;
+const validNikname = re.test(nikname);
+console.log(validNikname);
+
+  if (validNikname) {
     
     nikError.textContent = ''; 
     nikError.className = 'error'; 
@@ -36,9 +37,10 @@ nameField.addEventListener('input', function (event) {
   const nameError = document.querySelector('#name + span.error');
   console.log(name);
   const re = /^[a-z]{1,100}$/i;
-  const valid = re.test(name);
-  console.log(valid);
-    if (valid) {
+  const validName = re.test(name);
+  console.log(validName);
+
+    if (validName) {
       
       nameError.textContent = ''; 
       nameError.className = 'error'; 
@@ -48,42 +50,67 @@ nameField.addEventListener('input', function (event) {
       nameError.className = 'error active';
     }
   });
-  
+
  /*  Текстове поле (textarea) - comment:
   довжина мінімум 1 (включно),  максимум 1000(включно)
   За допомогою JavaScript дозвольте вводити тільки букви (англійські), 
   а також наступні символи .,!?- */
 
-  const textareaField = document.getElementById('msg');
-  textareaField.addEventListener('input', function (event) {
+const textareaField = document.getElementById('msg')
+textareaField.addEventListener('input', function (event) {
+    
+  const text = textareaField.value;
+  const textError = document.querySelector('#msg + span.error');
+  console.log(text);
+  const re = /^[a-z.,!?-]{1,1000}$/i;
+  const validText = re.test(text);
+  console.log(validText);  
 
-    const text = textareaField.value;
-    const textError = document.querySelector('#msg + span.error');
-    console.log(text);
-    const re = /^[a-z.,!?-]{1,1000}$/i;
-    const valid = re.test(text);
-    console.log(valid);
-      if (valid) {
-        
-        textError.textContent = ''; 
-        textError.className = 'error'; 
-      } else {
+    if (validText) {
+
+      textError.textContent = ''; 
+      textError.className = 'error'; 
+
+    } else {
     
         textError.textContent = 'You need to enter right text';
         textError.className = 'error active';
       }
     });
   
-  
-/* form.addEventListener('submit', function (event) {
-  // Если поле email валдно, позволяем форме отправляться
-
-  if(!nikname.validity.valid) {
-    // Если поле email не валидно, отображаем соответствующее сообщение об ошибке
-    showError();
-    // Затем предотвращаем стандартное событие отправки формы
-    event.preventDefault();
-  }
-});
-
+/*   Кнопка “Add comment”:
+додає блок з коментарем у наступному форматі:
+	nickname - name
+	comment
+додати блок з коментарем можна тільки тоді коли всі поля заповнені і відповідають попередньо описаним вимогам
+якщо поля не заповнені, то кнопка має бути виключена (disabled)
+блок з коментарем додає на початку списку коментарів
+Спочатку логіка, потім оформлення за бажанням.
  */
+if (validName) {
+  console.log(validName)
+   button.disabled = false;
+    
+     
+} else {
+  
+    button.disabled = true;
+}
+
+function addComment() {
+  
+  const form = document.getElementById('form');
+  const allInputs = document.querySelectorAll('#form input[type="text"]')
+    if (validName) {
+      console.log(validName)
+       button.disabled = false;
+        form.insertAdjacentHTML('afterend', `<div><p>${nik.value}-${nameField.value}<br>
+        ${textareaField.value}</p></div>`);
+         
+    } else {
+      
+        button.disabled = true;
+    }
+
+  form.reset();
+}

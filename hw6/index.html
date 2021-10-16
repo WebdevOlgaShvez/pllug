@@ -34,7 +34,8 @@ input:focus:invalid {
 </style>
 </head>
 <body>
-    <form action="">
+  <div>
+    <form action="" id ="form">
         <div>
           <p id="message" >Пожалуйста, заполните все поля формы!</p> 
             <label for="nikname"></label>
@@ -51,9 +52,9 @@ input:focus:invalid {
             <textarea id="msg" name="user_message"></textarea>
             <span class="error" aria-live="polite"></span>
           </div> 
-          <input name="button" type="submit" value="Add comment" onClick="validNikname();" />
+          <button class="button" type="button" onclick = "addComment()" disabled>Add Comment</button>
     </form>
-
+</div>
  
     <script src="main.js"></script>
 </body>

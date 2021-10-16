@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('/fonts/HelveticaNeue\ Medium.ttf') format('truetype'); 
+  font-weight: 500;
+  font-style: normal;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1920px;
+  max-height: 100vh;
+  background: #FFFFFF;
+  font-family: 'Poppins', sans-serif; 
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+/* ---------left side (content-box)------ */
+
+.content-box {
+  width: 50%;
+  height: 100vh;
+  background: url('/assets/Mask_Group_43.png') no-repeat;
+  background-size: cover;
+  
+}
+.content-box:hover {
+  border: 1px solid #8D8DA5;
+
+}
+
+.content {
+  margin-top: 90px;
+  margin-left: 90px;
+  margin-right: 138px;
+  color:#FFFFFF;
+}
+
+.content h1{
+  font-family: 'Helvetica Neue';
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 114px;
+}
+
+.content .redletter {
+  color: #E2222D;
+}
+
+.content h3 {
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.content p {
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(255, 255, 255, 0.8) ;
+  }
+
+  /* ---------right side (form-box)------ */
+  
+.form-box {
+  width: 50%;
+  margin: 0 auto;
+  
+}
+
+.text-box {
+  width: 50%;
+  margin: 0 auto;
+  color:#8D8DA5;
+
+}
+
+.text-box div:nth-child(2) {
+  margin-bottom: 40.51px;
+}
+
+.text-box div:nth-child(3) {
+  margin-bottom: 65px;
+}
+
+.headding-sign {
+  color:#181C32;
+  font-size: 36px;
+  font-weight: 500; 
+  margin-bottom: 60.49px;
+  text-align: left;
+}
+
+a {
+  color: #181C32;
+  font-size: 13px;
+}
+
+#userId {
+  color: #8D8DA5;
+  
+}
+
+.button {
+  width: 164px;
+  height: 50px;
+  background:#E2222D;
+  color: #DBDFEB;
+  border: 1px solid;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.button a{
+  text-decoration: none;
+  color: #DBDFEB;
+}
+
+
+ /* ------------------------------------- [ Responsive ]----------------- */  
+
+    
+/* lg-размер (<=1199px) */
+@media (max-width: 1199px) {
+  /* CSS для ширины от 992px до 1199px */
+  .content {
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 15%;
+    
+  }
+  
+  .content h1 {
+    font-size: 46px;
+    margin-bottom: 15%;
+  }
+ 
+}
+
+/* md-размер (<=991px) */
+@media (max-width: 991px) {
+  /* CSS для ширины от 768px до 991px */
+
+  .headding-sign {
+    font-size: 24px;
+    font-weight: 500; 
+    margin-bottom: 30px;
+    
+  }
+}
+
+/* sm-размер (<=768px) */
+@media (max-width: 767px) {
+  /* CSS для ширины от 576px до 767px */
+  
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+  } 
+
+  .content-box {
+   width: 100%;
+   height: 50vh;
+   margin-bottom: 30px;
+   background-size: 100%;
+  }
+
+  .content {
+   margin: 5%;
+  }
+
+  .content h1 {
+    font-size: 36px;
+    margin-bottom: 5%;
+  }
+
+  .form-box {
+    font-size: 13px;
+    width: 100%;
+    margin: 20px 10px;
+  }
+ 
+  .headding-sign {
+   font-size: 24px;
+   font-weight: 500; 
+   margin-bottom: 30px;
+   text-align: center;
+ }
+
+  .text-box {
+    width: 80%;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+/* xs-размер (<=575px) */
+@media (max-width: 575px) {
+  /* CSS для ширины до 575px (включительно) */
+
+  .content-box {
+    
+    margin-bottom: 0px;
+  }
+
+  .form-box {
+    margin: 10px 10px;
+  }
+
+  
+}
