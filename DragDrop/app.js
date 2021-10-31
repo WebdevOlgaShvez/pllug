@@ -44,7 +44,7 @@ if (file.type.match('image')) {
   reader.onload = ev => {
     
     preview.insertAdjacentHTML('afterbegin', `
-      <div class="preview-image">
+      <div class="preview-image" draggable ="true">
         <div class="preview-remove" data-name="${file.name}">&times;</div>
         <img src="assets/csv.png" alt="${file.name}" />
        
@@ -61,7 +61,7 @@ if (file.type.match('image')) {
   reader.onload = ev => {
     
     preview.insertAdjacentHTML('afterbegin', `
-      <div class="preview-image">
+      <div class="preview-image" draggable ="true">
         <div class="preview-remove" data-name="${file.name}">&times;</div>
         <img src="assets/txt-icon.png" alt="${file.name}" />
        

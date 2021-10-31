@@ -1,4 +1,5 @@
 body {
+    max-width: 1200px;
     background: #666;
     font-family: 'Roboto', sans-serif;
 }
@@ -97,3 +98,15 @@ input[type=file] {
     height: 180px;
     margin: 3px; 
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    body {
+      width: 100%;
+    }
+    .container {
+        padding-top: 5rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+  }
