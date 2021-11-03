@@ -19,6 +19,10 @@ dragDropArea.addEventListener('drop',(event) => {
   
 const preview = document.querySelector('.preview');
 
+const isSheetFileType = (currentFileType) => {
+  const sheetFileTypes = [".csv", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.ms-excel"];
+  return sheetFileTypes.some((sheetType) => currentFileType.match(sheetType))
+}
 
 function displayImage(file) {
 if (file.type.match('image')) {
@@ -37,7 +41,8 @@ if (file.type.match('image')) {
   </div>
 `)  
 
-} else if (file.type.match('vnd.ms-excel')) {
+// } else if (file.type.match('vnd.ms-excel')) { // не працює для сsv
+} else if (isSheetFileType(file.type)) {
     console.log(file)
     const reader = new FileReader()
 
@@ -110,3 +115,5 @@ const removeHandler = event => {
   open.addEventListener('click', triggerInput);
   input.addEventListener('change', changeHandler);
   preview.addEventListener('click', removeHandler);
+
+// Відстуня можливість змінювати порядок прев'юшок
