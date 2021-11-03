@@ -1,14 +1,26 @@
 
 
-let obj = {}, obj2 = Object.create(null), map = new Map(), n ; // не найкращий спосіб присвоювання значень, юзати можна, але в майбутньому надавайте перевагу присвоюванню кожній змінній у новому рядку.
+let obj = {};
+let obj2 = Object.create(null);
+let map = new Map();
+let n ;
 
 n = 10000000;
 
 for (let i = 0; i < n; i++) {
   obj[i] = i;
+ 
+}
+for (let i = 0; i < n; i++) {
+  
   obj2[i] = i;
+
+}
+for (let i = 0; i < n; i++) {
+
   map.set(i, i);
 }
+
  // 10000000
 console.log('for 10 000 000');
 
@@ -25,23 +37,23 @@ map.set(n, n);
 console.timeEnd('Map');
 
 // value
-console.log('is value');
+/* console.log('is value');
 let result;
 
 console.time('Object');
 result = obj.hasOwnProperty('999999');
-console.timeEnd('Object');
+console.timeEnd('Object'); */
 
 /* console.time('Object2');
 result = obj2.hasOwnProperty('999999');
 console.timeEnd('Object2'); */
 
-console.time('Map');
+/* console.time('Map');
 result = map.has(999999);
-console.timeEnd('Map');
+console.timeEnd('Map'); */
 
 //delete key
-console.log('delete key');
+/* console.log('delete key');
 
 console.time('Object');
 delete obj[n];
@@ -49,11 +61,11 @@ console.timeEnd('Object');
 
 console.time('Map');
 map.delete(n);
-console.timeEnd('Map');
+console.timeEnd('Map'); */
 
 
 // 10000
-console.log('for 10000');
+/* console.log('for 10000');
 n = 10000;
 
 for (let i = 0; i < n; i++) {
@@ -73,10 +85,10 @@ for (let i = 0; i < n; i++) {
   console.time('Map');
   map.set(n, n);
   console.timeEnd('Map');
-
+ */
 
 // 100
-  n = 100;
+  /* n = 100;
 
   for (let i = 0; i < n; i++) {
       obj[i] = i;
@@ -94,7 +106,7 @@ for (let i = 0; i < n; i++) {
     
     console.time('Map');
     map.set(n, n);
-    console.timeEnd('Map');
+    console.timeEnd('Map'); */
 
 /**
  * Завдання виконано не правильно коректно, потрібно робити заміри для об'єкта, об'єкта без прототипа і Map окремо один від одного.
