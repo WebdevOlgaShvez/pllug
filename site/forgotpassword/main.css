@@ -137,9 +137,13 @@ label {
  
 }
 
-a {
+a.sign  {
   color: #181C32;
   font-size: 13px;
+  text-decoration: none;
+}
+div > .button a.sign {
+  color: #fff;
 }
 
 .link-signin {
