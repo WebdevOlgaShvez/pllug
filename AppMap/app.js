@@ -37,7 +37,6 @@ const {form} = document.forms;
 form.addEventListener('submit', function(e){
 	e.preventDefault();
 
-	console.log(mylng);
 	const path = form.querySelector('[name="type"]').value;
 	const {places, radius} = form;
 	const formData = {
@@ -47,8 +46,6 @@ form.addEventListener('submit', function(e){
         lng: mylng     	
 	}   
 
-	console.log(formData);
-	console.log(mylng);
 	const sendData = async () => {
 		
 	const obj = await fetch(url+`${path}`, {
@@ -61,10 +58,7 @@ form.addEventListener('submit', function(e){
 		});
 
 	const array = await obj.json();
-    console.log(array);
 
-	
-	
 	function initMap() {
 		const myLatLng = {
 		  lat: mylat,
@@ -81,15 +75,15 @@ form.addEventListener('submit', function(e){
 			title: "This is me",
 		  });
 
-	for (let key in array){
+	    for (let key in array){
 		
-		new google.maps.Marker({
-			position: {
-			lat: array[key].lat, 
-			lng: array[key].lng
-			},
-			map,
-			title: array[key].name,
+		   new google.maps.Marker({
+				position: {
+				lat: array[key].lat, 
+				lng: array[key].lng
+				},
+				map,
+				title: array[key].name,
 		}); 
 	}
 	  };
