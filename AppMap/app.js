@@ -1,82 +1,56 @@
 'use strict'
 
-let result;
+let mylat = 0;
+let mylng = 0;
 
 function getposition() {
-    result = document.getElementById('result');
-	
-	// Если функциональность геолокации доступна, 
-	// пытаемся определить координаты посетителя
 	if (navigator.geolocation) {
-		// Передаем две функции
-		navigator.geolocation.getCurrentPosition(
-		            geolocationSuccess, geolocationFailure);
-		
-		// Выводим результат
-		result.innerHTML = "Поиск начался";
+		navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationFailure);	            
 	}
-	else {
-		// Выводим результат
-		result.innerHTML = "Ваш браузер не поддерживает геолокацию";
-	}
-	
 }
 
 function geolocationSuccess(position) {
-	result.innerHTML = "Последний раз вас засекали здесь: " +
-	         position.coords.latitude + ", " + position.coords.longitude;
-			 console.log(result)
-			 console.log(position.coords.latitude)
-			 
+
+	mylat = position.coords.latitude;
+	mylng = position.coords.longitude;			 
 }
 
 function geolocationFailure(positionError) {
 	if(positionError == 1) {
-		result.innerHTML = "Вы решили не предоставлять данные о своем местоположении, " + 
-		        "но это не проблема. Мы больше не будем запрашивать их у вас.";
+		alert("Вы решили не предоставлять данные о своем местоположении");
 	}
 	else if(positionError == 2) {
-		result.innerHTML = "Проблемы с сетью или нельзя связаться со службой определения " + 
-		        "местоположения по каким-либо другим причинам.";
+		alert("Проблемы с сетью или нельзя связаться со службой определения местоположения по каким-либо другим причинам"
+		    );
 	}
 	else if(positionError == 3) {
-		result.innerHTML = "He удалось определить местоположение " 
-		        + "в течение установленного времени. ";
+		alert("He удалось определить местоположение в течение установленного времени."); 
+	}	
+};
 
-	}
-	else {
-		result.innerHTML = "Загадочная ошибка.";
-	}
-} 
+getposition();
+
 const url = 'http://198.199.125.240:8888/';
-
 
 const {form} = document.forms;
 
-
-let res = form.addEventListener('submit', function(e){
+form.addEventListener('submit', function(e){
 	e.preventDefault();
 
-
-    getposition();
-
-
+	console.log(mylng);
 	const path = form.querySelector('[name="type"]').value;
-	
 	const {places, radius} = form;
 	const formData = {
 		query: new String(places.value),
 		radius: Number.parseInt(radius.value),
-		lat: 46.635417,
-  		lng: 32.616867, 
-      	
+		lat: mylat,
+        lng: mylng     	
 	}   
 
 	console.log(formData);
-	
-
-const app = async () => {
-	
+	console.log(mylng);
+	const sendData = async () => {
+		
 	const obj = await fetch(url+`${path}`, {
 		method: 'POST',
 		headers: {
@@ -85,76 +59,46 @@ const app = async () => {
 		},
 		body:JSON.stringify(formData)
 		});
+
 	const array = await obj.json();
-   
-    console.log(array)
-	let arr= array.forEach(element => {
-		console.log(element)
-		return element
-		  
-	});
-    console.log(arr)
+    console.log(array);
+
 	
-  };
- 
-  app();
-
-  function initMap() {
-	const element = document.getElementById('maparea');
-	const options = {
-		zoom: 12,
-		center: {lat: 46.635417, lng: 32.616867},
-	};
-
-	let myMap = new google.maps.Map(element, options);
-
-	let markers = [
-		{
-			coordinates: {lat: 46.636028934331996,
-				lng: 32.60813826869111},
-			info: '<h3>Москва</h3><br><p>Описание</p>'
-		},
-		{
-			coordinates: {lat: 46.635768,
-				lng: 32.608194},
-			info: '<h3>Санкт-Петербург</h3><br><p>Описание</p>'
-		},
-		{
-			coordinates: {lat: 46.640245,
-				lng: 32.611581},
-			info: '<h3>Киев</h3><br><p>Описание</p>'
-		}
-	];
-
-	for(let i = 0; i < markers.length; i++) {
-		addMarker(markers[i]);
-	}
-
-	function addMarker(properties) {
-		let marker = new google.maps.Marker({
-			position: properties.coordinates,
-			map: myMap
+	
+	function initMap() {
+		const myLatLng = {
+		  lat: mylat,
+		  lng: mylng  
+		 };
+		const map = new google.maps.Map(document.getElementById("maparea"), {
+		  zoom: 10,
+		  center: myLatLng,
 		});
 
-		if(properties.image) {
-			marker.setIcon(properties.image);
-		}
+		new google.maps.Marker({
+			position: myLatLng,
+			map,
+			title: "This is me",
+		  });
 
-		if(properties.info) {
-			let InfoWindow = new google.maps.InfoWindow({
-				content: properties.info
-			});
-
-			marker.addListener('click', function(){
-				InfoWindow.open(myMap, marker);
-			});
-		}
+	for (let key in array){
+		
+		new google.maps.Marker({
+			position: {
+			lat: array[key].lat, 
+			lng: array[key].lng
+			},
+			map,
+			title: array[key].name,
+		}); 
 	}
-};
+	  };
+	
+	initMap();
+  };
 
-initMap();
-
-
+  	sendData();
+ 
 })
 
 

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <!-- <script src="http://maps.google.com/maps/api/js?sensor=true"></script> -->
+
     <title>Document</title>
 </head>
 <body>
@@ -20,10 +20,10 @@
                 <label for="places">Choose a place:</label>
                 <select name="places" id="places">
                   <option value="restaurant">Restaurant</option>
-                  <option value="cafe">Cafe</option>
+                  <option value="coffee">Coffee</option>
                   <option value="museum">Museum</option>
                   <option value="hotel">Hotel</option>
-                  <option value="mcdonalds">McDonalds</option>
+                  <option value="McDonalds">McDonalds</option>
                 </select>
                 <p>Please select distance:</p>
                 <div>
@@ -39,18 +39,16 @@
                   <input type="radio" id="radius10" name="radius" value="10000">
                   <label for="radius10">10km</label>
 
-                  <!-- 
-                  <input type="radio" id="radius20"
-                   name="radius" value="radius">
-                  <label for="radius20">20km</label>
-                
-                  <input type="radio" id="radius50"
-                  name="radius" value="radius">
-                 <label for="radius50">50km</label>
-                
-                  <input type="radio" id="radius100"
-                  name="radius" value="radius">
-                  <label for="radius100">100km</label> -->
+                  <input type="radio" id="radius20" name="radius" value="20000">
+                  <label for="radius10">20km</label>
+
+                  <input type="radio" id="radius50" name="radius" value="50000">
+                  <label for="radius10">50km</label>
+
+                  <input type="radio" id="radius100" name="radius" value="100000">
+                  <label for="radius10">100km</label>
+
+              
 
                 </div>
                 <p>Type response:</p>
@@ -63,7 +61,7 @@
 
                 </div>
                 <div>
-                  <button type="submit">Submit</button>
+                  <button class ="btn" type="submit">Submit</button>
                 </div>
                 
               </form>
@@ -72,7 +70,7 @@
         </div>
     </main>
 
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRj0qeAVSgFaVQyLk61om1ZsVLWERyvdI&callback"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRj0qeAVSgFaVQyLk61om1ZsVLWERyvdI"></script>
     <script src="app.js"></script>
   
   
