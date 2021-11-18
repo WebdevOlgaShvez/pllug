@@ -108,17 +108,9 @@ for (let i = 0; i < n; i++) {
     map.set(n, n);
     console.timeEnd('Map'); */
 
-/**
- * Завдання виконано не правильно коректно, потрібно робити заміри для об'єкта, об'єкта без прототипа і Map окремо один від одного.
- * Ви зробили це в одному масиві разом для всіх (об'єкт, об'єкт без прототипу, Map), таким чином ми не можемо побачити різниці в продуктивності.
- */
 
 
 // ----перетворити обєкт у  Мар  ----------------  
-/**
- * Можна швидше і простіше:
- * const objToMap = (obj) => new Map(Object.entries(obj));
- */
   const objToMap = obj => {
     const map = new Map;
     Object.keys(obj).forEach(key => { map.set(key, obj[key]) });
@@ -126,16 +118,8 @@ for (let i = 0; i < n; i++) {
   };
   
   // ---перетворити Мар у обєкт----------  
-/**
- * Можна швидше і простіше:
- * function mapToObj(map) {
- *   return Object.fromEntries(map.entries());
- * }
- */
   const mapToObj = map => {
     const obj = {};
     map.forEach((key, value) => { obj[key] = value });
     return obj;
   };
-
-// Непогано! 70%
