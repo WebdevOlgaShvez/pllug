@@ -1,5 +1,5 @@
 const cacheName = 'v1';
-const cacheAssets = ['signin.html', 'main.css', 'script.js'];
+const cacheAssets = ['signin.html', 'main.css', 'script.js']; // відсутнє кешування шрифтів та картинок
 
 self.addEventListener('install', (event) => {
   console.log('Serive Worker: Installed');
