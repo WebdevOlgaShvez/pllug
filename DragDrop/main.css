@@ -6,7 +6,7 @@ body {
 
 .container {
     padding-top: 5rem;
-    width: 800px;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -99,11 +99,20 @@ input[type=file] {
     margin: 3px; 
 }
 
+.dragging {
+    opacity: 0.5;
+  }
+
+  .over {
+    border: solid rgba(49, 47, 47, 0.575);
+  }
+
+  
+
+  
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
-    body {
-      width: 100%;
-    }
+  
     .container {
         padding-top: 5rem;
         width: 100%;
