@@ -109,7 +109,6 @@ for (let i = 0; i < n; i++) {
     console.timeEnd('Map'); */
 
 
-
 // ----перетворити обєкт у  Мар  ----------------  
   const objToMap = obj => {
     const map = new Map;
