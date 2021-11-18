@@ -53,7 +53,7 @@ form.addEventListener('submit', function(e){
 	const obj = await fetch(url+`${path}`, {
 		method: 'POST',
 		headers: {
-		'Accept': 'application/json',
+		'Accept': 'application/json', // для csv це має бути "text/csv; charset=utf-8"
 		'Content-Type': 'application/json'
 		},
 		body:JSON.stringify(formData)
