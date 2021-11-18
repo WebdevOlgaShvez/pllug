@@ -37,6 +37,8 @@ const {form} = document.forms;
 form.addEventListener('submit', function(e){
 	e.preventDefault();
 
+	// не працює для csv, завжди map. Тому що querySelector повертає перший знайдений елемент який буде завжди map
+	// const path = form.querySelector('[name="type"]:checked').value;
 	const path = form.querySelector('[name="type"]').value;
 	const {places, radius} = form;
 	const formData = {
@@ -51,7 +53,7 @@ form.addEventListener('submit', function(e){
 	const obj = await fetch(url+`${path}`, {
 		method: 'POST',
 		headers: {
-		'Accept': 'application/json',
+		'Accept': 'application/json', // для csv це має бути "text/csv; charset=utf-8"
 		'Content-Type': 'application/json'
 		},
 		body:JSON.stringify(formData)
@@ -95,6 +97,6 @@ form.addEventListener('submit', function(e){
  
 })
 
-
+// не реалізовано можливість збереження csv файлу
 
 
