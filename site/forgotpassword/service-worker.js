@@ -1,6 +1,6 @@
 //const cacheName = 'v2';
 const cacheName  = 'cache-only-v1';
-const cacheAssets = ['forgpaswrd.html', 'main.css', 'script.js'];
+const cacheAssets = ['forgpaswrd.html', 'main.css', 'script.js']; // відсутнє кешування шрифтів та картинок
 
 /* self.addEventListener('install', (event) => {
   console.log('Serive Worker: Installed');
